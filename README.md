@@ -8,7 +8,7 @@ repositories {
     }
 }
 
-testCompile('no.fint:fint-test-utils:0.0.1')
+testCompile('no.fint:fint-test-utils:0.0.2')
 ```
 
 ## MockMvcSpecification
