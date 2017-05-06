@@ -2,6 +2,12 @@
 
 ## Installation
 ```groovy
+repositories {
+    maven {
+        url  "http://dl.bintray.com/fint/maven" 
+    }
+}
+
 testCompile('no.fint:fint-test-utils:0.0.1')
 ```
 
