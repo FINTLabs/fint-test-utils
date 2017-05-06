@@ -1,0 +1,26 @@
+plugins {
+    id "com.jfrog.bintray" version "1.7.3"
+}
+
+apply plugin: 'groovy'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
+version = '0.0.1'
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+apply from: 'https://raw.githubusercontent.com/FINTlibs/fint-buildscripts/v1.0.8/dependencies.gradle'
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+
+    compile("org.spockframework:spock-spring:${spockSpringVersion}")
+}
+
+if (project.hasProperty('bintrayUser') && project.hasProperty('bintrayKey')) {
+    apply from: 'https://raw.githubusercontent.com/FINTlibs/fint-buildscripts/v1.0.8/bintray.gradle'
+}
