@@ -6,7 +6,11 @@ apply plugin: 'groovy'
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
 
-version = '0.0.1'
+jar {
+    baseName = 'fint-test-utils'
+    version = '0.0.1'
+}
+
 sourceCompatibility = 1.8
 
 repositories {
@@ -19,6 +23,10 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
 
     compile("org.spockframework:spock-spring:${spockSpringVersion}")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = gradleVersion
 }
 
 if (project.hasProperty('bintrayUser') && project.hasProperty('bintrayKey')) {
