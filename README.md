@@ -8,7 +8,7 @@ repositories {
     }
 }
 
-testCompile('no.fint:fint-test-utils:0.0.3')
+testCompile('no.fint:fint-test-utils:0.0.4')
 ```
 
 ## MockMvcSpecification
@@ -31,6 +31,8 @@ class TestControllerSpec extends MockMvcSpecification {
 
         then:
         response.andExpect(status().isOk())
+            .andExpect(jsonPathSize('$', 1))
+            .andExpect(jsonPathEquals('$[0].test', '123'))
     }
 }
 ```

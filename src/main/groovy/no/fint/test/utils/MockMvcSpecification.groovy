@@ -1,5 +1,6 @@
 package no.fint.test.utils
 
+import org.hamcrest.CoreMatchers
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 import org.springframework.test.web.servlet.MockMvc
@@ -102,6 +103,14 @@ class MockMvcSpecification extends Specification {
 
     static <E> Matcher<Collection<? extends E>> hasSize(int size) {
         return Matchers.hasSize(size)
+    }
+
+    static ResultMatcher jsonPathEquals(String expression, String equals) {
+        return jsonPath(expression).value(CoreMatchers.equalTo(equals))
+    }
+
+    static ResultMatcher jsonPathSize(String expression, int size) {
+        return jsonPath(expression, hasSize(size))
     }
 
 }
