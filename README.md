@@ -18,9 +18,13 @@ Simplifies the setup required to create `MockMvc` tests with [spock](http://spoc
 ```groovy
 @WebMvcTest(TestController)
 class TestControllerSpec extends MockMvcSpecification {
-    
-    @Autowired
     private MockMvc mockMvc
+ 
+    void setup() {
+        controller = new TestController()
+        mockMvc = standaloneSetup(controller)
+    }
+ 
 
     def "Return status 200 OK"() {
         when:
