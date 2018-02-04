@@ -19,6 +19,7 @@ Simplifies the setup required to create `MockMvc` tests with [spock](http://spoc
 @WebMvcTest(TestController)
 class TestControllerSpec extends MockMvcSpecification {
     private MockMvc mockMvc
+    private TestController controller
  
     void setup() {
         controller = new TestController()
