@@ -16,7 +16,6 @@ testCompile('no.fint:fint-test-utils:0.0.4')
 Simplifies the setup required to create `MockMvc` tests with [spock](http://spockframework.org/).
 
 ```groovy
-@WebMvcTest(TestController)
 class TestControllerSpec extends MockMvcSpecification {
     private MockMvc mockMvc
     private TestController controller
