@@ -8,6 +8,7 @@ import org.springframework.test.web.servlet.ResultMatcher
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.ContentResultMatchers
+import org.springframework.test.web.servlet.result.HeaderResultMatchers
 import org.springframework.test.web.servlet.result.JsonPathResultMatchers
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 import org.springframework.test.web.servlet.result.StatusResultMatchers
@@ -83,6 +84,10 @@ class MockMvcSpecification extends Specification {
 
     static StatusResultMatchers status() {
         return MockMvcResultMatchers.status()
+    }
+
+    static HeaderResultMatchers header() {
+        return MockMvcResultMatchers.header()
     }
 
     static ContentResultMatchers content() {
